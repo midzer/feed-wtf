@@ -1,6 +1,8 @@
 <script>
     import './index.css';
 
+    import { page } from '$app/stores';
+
     // urlB64ToUint8Array is a magic function that will encode the base64 public key
     // to Array buffer which is needed by the subscription option
     function urlB64ToUint8Array (base64String) {
@@ -61,8 +63,8 @@
     if (SUBDOMAIN !== 'localhost') {
       prefix = SUBDOMAIN + '_';
     }*/
-    const protocol = prefix + window.location.pathname.substring(1).replace(/\//g, '_').replace('@', '!');
-    const ws = new WebSocket('wss://wtf.feed-dachau.de/ws/');
+    const protocol = prefix + $page.path.substring(1).replace(/\//g, '_').replace('@', '!');
+    const ws = new WebSocket('wss://wtf.feed-dachau.de/ws/', protocol);
     //const ws = new WebSocket('ws://localhost:61716', protocol);
 
     let timeout;
