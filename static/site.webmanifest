@@ -1,0 +1,22 @@
+{
+    "name": "feed.wtf",
+    "lang": "de",
+    "short_name": "feed.wtf",
+    "description": "Lokale Nachrichten, die zählen",
+    "icons": [
+        {
+          "src": "/img/logo-192x192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "/img/logo-512x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+    ],
+    "theme_color": "#f57c00",
+    "background_color": "#fdfdfd",
+    "display": "standalone",
+    "orientation": "any"
+}
