@@ -108,19 +108,9 @@
             source.textContent = hostname;
 
             // Entry
-            let entry;
-            let details;
-            if (feed.summary) {
-                entry = document.createElement('summary');
-                details = document.createElement('details');
-                details.className = 'entry';
-                details.textContent = feed.summary;
-                details.appendChild(entry);
-            }
-            else {
-                entry = document.createElement('div');
-                entry.className = 'entry';
-            }
+            const entry = document.createElement('div');
+            entry.className = 'entry';
+
             // Badge
             if (feedArray.length === 1) {
                 const badge = document.createElement('span');
@@ -132,8 +122,17 @@
             const linkHeading = document.createElement('h2');
             linkHeading.className = 'h6 d-inline';
             linkHeading.textContent = feed.title || 'Kein Feed gefunden. Bitte trage einen ein :)';
-            entry.appendChild(linkHeading);
-
+            if (feed.summary) {
+                const summary = document.createElement('summary');
+                summary.appendChild(linkHeading);
+                const details = document.createElement('details');
+                details.textContent = feed.summary;
+                details.appendChild(summary);
+                entry.appendChild(details);
+            }
+            else {
+                entry.appendChild(linkHeading);
+            }
             // Social
             if (navigator.share) {
                 const shareLink = document.createElement('a');
@@ -175,7 +174,7 @@
                 entry.appendChild(twitterLink);
             }
             // Append all to frag
-            frag.insertBefore(details || entry, frag.childNodes[0]);
+            frag.insertBefore(entry, frag.childNodes[0]);
             frag.insertBefore(source, frag.childNodes[0]);
             frag.insertBefore(time, frag.childNodes[0]);
             frag.insertBefore(date, frag.childNodes[0]);

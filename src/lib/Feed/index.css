@@ -19,6 +19,10 @@
     margin-left: 3px;
 }
 
+.entry > details {
+    display: inline-block;
+}
+
 .d-inline {
     display: inline !important;
 }
