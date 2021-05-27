@@ -39,6 +39,7 @@ section > button {
     height: 100%;
 }
 
+.choices__list--single .choices__item,
 .choices__placeholder {
     position: absolute;
 }
