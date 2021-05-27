@@ -1,0 +1,61 @@
+#feedbox {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: 80px 62px 125px auto;
+    min-height: 850px;
+}
+
+@media (max-width: 767.98px) {
+    #feedbox {
+        grid-template-columns: 80px 62px auto;
+    }
+
+    #feedbox > .entry {
+        grid-column: span 3;
+    }
+}
+
+.entry h2 {
+    margin-left: 3px;
+}
+
+.d-inline {
+    display: inline !important;
+}
+
+.h6 {
+    font-size: 1rem;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: sub;
+    fill: currentColor;
+}
+
+.ml-2 {
+    margin-left: .5rem !important;
+}
+
+.mr-2 {
+    margin-right: .5rem !important;
+}
+
+.badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+}
+
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}

@@ -1,0 +1,15 @@
+section {
+    display: grid;
+    grid-template-columns: 60px 300px 100px;
+    grid-gap: 1rem;
+}
+
+@media (max-width: 767.98px) {
+    section {
+        grid-template-columns: 60px auto;
+    }
+
+    section > button {
+        grid-column: span 3;
+    }
+}
