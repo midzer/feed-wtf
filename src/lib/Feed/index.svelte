@@ -57,10 +57,10 @@
     }
 
     let prefix = '';
-    const SUBDOMAIN = window.location.hostname.split(".")[0];
+    /*const SUBDOMAIN = window.location.hostname.split(".")[0];
     if (SUBDOMAIN !== 'localhost') {
       prefix = SUBDOMAIN + '_';
-    }
+    }*/
     const protocol = prefix + window.location.pathname.substring(1).replace(/\//g, '_').replace('@', '!');
     const ws = new WebSocket('wss://wtf.feed-dachau.de/ws/');
     //const ws = new WebSocket('ws://localhost:61716', protocol);
