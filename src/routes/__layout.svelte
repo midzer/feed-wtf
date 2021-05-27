@@ -3,6 +3,11 @@
     import '../app.css';
 </script>
 
+<svelte:head>
+	<title>feed.wtf</title>
+    <link rel="manifest" href="/site.webmanifest">
+</svelte:head>
+
 <Header />
 
 <main>
