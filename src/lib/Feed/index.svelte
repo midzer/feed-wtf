@@ -187,7 +187,7 @@
 </script>
 
 <section>
-    <label for="feedInput">oder</label>
+    <label for="feedInput">👍</label>
     <input type="text" id="feedInput" name="feedInput" placeholder="Feed-URL eintragen" bind:value={feedURL}>
 	<button id="feedButton" disabled={feedURL && isValidHttpUrl(feedURL) ? false : true} on:click={handleFeedClick}>Los!</button>
 </section>
