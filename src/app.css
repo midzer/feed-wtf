@@ -1,5 +1,9 @@
 /* MVP.css v1.7.4 - https://github.com/andybrewer/mvp */
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --border-radius: 5px;
     --box-shadow: 2px 2px 10px;
@@ -111,9 +115,9 @@ main header {
     padding-top: 0;
 }
 
-header {
+/*header {
     text-align: var(--justify-important);
-}
+}*/
 
 header a b,
 header a em,

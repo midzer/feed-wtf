@@ -1,4 +1,5 @@
 <script>
+    import '../../vendor/css/choices.css';
 	import './index.css';
 
 	import { onMount } from "svelte";
@@ -6,9 +7,7 @@
 	import { page } from '$app/stores';
 	import { goto/*, invalidate, prefetch, prefetchRoutes*/ } from '$app/navigation';
 	import slugo from 'slugo';
-
-	import '../../vendor/css/choices.css';
-  
+	
 	let region;
 	let city;
 	let user;
@@ -64,17 +63,17 @@
 
 			const cities = document.getElementById('cities');
 			const citiesChoices = new Choices(cities, {
-				/*placeholderValue: LANG.choosePlace,
+				placeholderValue: 'Ort auswählen',
 				searchFields: ['value'],
-				searchPlaceholderValue: LANG.search,
-				loadingText: LANG.loading,
-				noResultsText: LANG.noResultsFound,
+				searchPlaceholderValue: 'Suchen...',
+				loadingText: 'Lädt...',
+				noResultsText: 'Keine Ergebnisse gefunden',
 				itemSelectText: '+',
-				noChoicesText: LANG.withAtLeastThreeLetters,
+				noChoicesText: 'mit wenigstens drei Buchstaben',
 				renderChoiceLimit : 0,
 				searchResultLimit: 100,
 				shouldSort: false,
-				position: 'bottom'*/
+				position: 'bottom'
 			})
 			.setChoices(function() {
 				return new Promise(function (resolve) {
@@ -125,7 +124,7 @@
 		<label for="user">Wähle</label>
     	<input type="text" id="user" name="user" placeholder="Nickname" bind:value={user}>
 		<button id="userButton" disabled={user ? false : true} on:click={handleUserClick}>Los!</button>
-		<label for="cities">oder Ort</label>
+		<label for="cities">oder</label>
     	<select data-type="select-one" class="form-control" name="cities" id="cities"></select>
     	<button id="cityButton" disabled={city ? false : true} on:click={handleCityClick}>Los!</button>
   	</section>
