@@ -13,7 +13,7 @@
   },
   "type": "module",
   "dependencies": {
-    "choices.js": "midzer/Choices",
+    "choices.js": "midzer/Choices#master",
     "slugo": "midzer/slugo"
   }
 }
