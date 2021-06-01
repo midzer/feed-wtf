@@ -95,7 +95,7 @@
                 hostname = url.hostname;
             }
             else {
-                hostname = 'feed.wtf';
+                hostname = 'feedi.net';
             }
             if (hostname.startsWith('www.')) {
                 hostname = hostname.replace('www.', '');

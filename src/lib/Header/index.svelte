@@ -85,7 +85,7 @@
 </script>
 
 <header>
-	<h1><a href="/" aria-label="Navigate to home page">📰</a> feed.wtf ALPHA - {$page.params.city || $page.params.user || 'Local news that matter'}</h1>
+	<h1><a href="/" aria-label="Navigate to home page">📰</a> feedi.net ALPHA - {$page.params.city || $page.params.user || 'Local news that matter'}</h1>
 	<section>
 		<label for="user">Choose</label>
     	<input type="text" id="user" name="user" placeholder="Nickname" bind:value={user}>

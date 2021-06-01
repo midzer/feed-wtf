@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>feed.wtf</title>
+	<title>feedi.net</title>
     <link rel="manifest" href="/site.webmanifest">
 </svelte:head>
 
