@@ -15,5 +15,5 @@
 </main>
 
 <footer>
-    <p><b>Notice</b>: Early ALPHA version. The security of the entered data can not be guaranteed!</p>
+    <p><b>Warning</b>: Early ALPHA version. The security of the entered data can not be guaranteed!</p>
 </footer>
