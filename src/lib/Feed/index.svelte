@@ -59,7 +59,7 @@
     }
 
     const protocol = $page.path.substring(1).replace(/-/g, '_').replace('@', '!');
-    const ws = new WebSocket('wss://wtf.feed-dachau.de/ws/', protocol);
+    const ws = new WebSocket('wss://api.feedi.net/ws/', protocol);
     //const ws = new WebSocket('ws://localhost:61716', protocol);
 
     let timeout;
