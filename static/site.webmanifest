@@ -2,7 +2,7 @@
     "name": "feed.wtf",
     "lang": "de",
     "short_name": "feed.wtf",
-    "description": "Lokale Nachrichten, die zählen",
+    "description": "Local news that matter",
     "theme_color": "#f57c00",
     "background_color": "#fdfdfd",
     "display": "standalone",

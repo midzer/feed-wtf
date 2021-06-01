@@ -1,3 +1,1 @@
-<p>feed.wtf ist ein Gemeinschaftsprojekt, um RSS-/JSON-Feeds allen zur Verfügung zu stellen.</p>
-<p>Ihr könnt eigene und stadtbezogene Feeds abrufen und eintragen.</p>
-<p><b>Hinweis</b>: Bisher gibt es nur 3 Ort nach denen ihr suchen könnt: "Augsburg", "Dachau" und "München"</p>
+<p>feed.wtf is a community-driven project to make RSS/JSON feeds available to everyone. You can retrieve and enter your own and city feeds.</p>

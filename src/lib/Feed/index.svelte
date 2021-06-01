@@ -58,12 +58,7 @@
         ws.send(feedURL);
     }
 
-    let prefix = '';
-    /*const SUBDOMAIN = window.location.hostname.split(".")[0];
-    if (SUBDOMAIN !== 'localhost') {
-      prefix = SUBDOMAIN + '_';
-    }*/
-    const protocol = prefix + $page.path.substring(1).replace(/\//g, '_').replace('@', '!');
+    const protocol = $page.path.substring(1).replace(/-/g, '_').replace('@', '!');
     const ws = new WebSocket('wss://wtf.feed-dachau.de/ws/', protocol);
     //const ws = new WebSocket('ws://localhost:61716', protocol);
 
@@ -83,7 +78,7 @@
             // Date
             const date = document.createElement('span');
             const feedDate = new Date(feed.date);
-            const formattedDate = new Intl.DateTimeFormat('de-DE').format(feedDate);
+            const formattedDate = new Intl.DateTimeFormat('en-US').format(feedDate);
             date.textContent = formattedDate;
 
             // Time
@@ -100,7 +95,7 @@
                 hostname = url.hostname;
             }
             else {
-                hostname = 'de.feed.wtf';
+                hostname = 'feed.wtf';
             }
             if (hostname.startsWith('www.')) {
                 hostname = hostname.replace('www.', '');
@@ -121,7 +116,7 @@
             // Heading
             const linkHeading = document.createElement('h2');
             linkHeading.className = 'h6 d-inline';
-            linkHeading.textContent = feed.title || 'Kein Feed gefunden. Bitte trage einen ein :)';
+            linkHeading.textContent = feed.title || 'No Feed feed. Please enter one :)';
             if (feed.summary) {
                 const summary = document.createElement('summary');
                 summary.appendChild(linkHeading);
@@ -188,7 +183,7 @@
 
 <section>
     <label for="feedInput">👍</label>
-    <input type="text" id="feedInput" name="feedInput" placeholder="Feed-URL eintragen" bind:value={feedURL}>
-	<button id="feedButton" disabled={feedURL && isValidHttpUrl(feedURL) ? false : true} on:click={handleFeedClick}>Los!</button>
+    <input type="text" id="feedInput" name="feedInput" placeholder="Enter Feed-URL" bind:value={feedURL}>
+	<button id="feedButton" disabled={feedURL && isValidHttpUrl(feedURL) ? false : true} on:click={handleFeedClick}>Go!</button>
 </section>
 <div id="feedbox"></div>

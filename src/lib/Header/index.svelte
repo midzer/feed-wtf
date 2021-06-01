@@ -5,38 +5,26 @@
 	import { onMount } from "svelte";
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
-	import { goto/*, invalidate, prefetch, prefetchRoutes*/ } from '$app/navigation';
+	//import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
 	import slugo from 'slugo';
-	
-	let region;
+
 	let city;
 	let user;
-
-	function handleChange (event) {
-		user = event.target.value;
-		document.getElementById('userButton').disabled = user ? false : true;
-	}
   
 	function handleUserClick (event) {
-    	goto(`/@${slugo(user)}`);
+    	//goto(`/@${user}`);
 		// TODO: this fix is a hack, see https://github.com/sveltejs/kit/issues/552
-		//window.location = `/@${slugo(user)}`;
+		window.location = `/@${slugo(user)}`;
 	}
 
 	function handleCityClick (event) {
-    	goto(`/${slugo(region)}/${slugo(city)}`);
+    	//goto(`/${city}`);
 		// TODO: this fix is a hack, see https://github.com/sveltejs/kit/issues/552
-		//window.location = `/${slugo(region)}/${slugo(city)}`;
-	}
-  
-	async function fetchRegions() {
-		const response = await fetch('/data/regions.json');
-		return await response.json();
+		window.location = `/${slugo(city)}`;
 	}
 
-	async function fetchRegion (region) {
-		const regionSlug = slugo(region);
-		return fetch('/data/' + regionSlug + '.json')
+	async function fetchCities () {
+		return fetch('/data/cities.json')
 		.then(function(response) {
 			return response.json();
 		})
@@ -44,10 +32,7 @@
 			return data.map(function(item) {
 				return {
 					value: item,
-					label: item + ', ' + region,
-					customProperties: {
-						region: regionSlug,
-					}
+					label: item
 				};
 			});
 		})
@@ -63,13 +48,13 @@
 
 			const cities = document.getElementById('cities');
 			const citiesChoices = new Choices(cities, {
-				placeholderValue: 'Ort auswählen',
+				placeholderValue: 'City',
 				searchFields: ['value'],
-				searchPlaceholderValue: 'Suchen...',
-				loadingText: 'Lädt...',
-				noResultsText: 'Keine Ergebnisse gefunden',
+				searchPlaceholderValue: 'Searching...',
+				loadingText: 'Loading...',
+				noResultsText: 'No results found',
 				itemSelectText: '+',
-				noChoicesText: 'mit wenigstens drei Buchstaben',
+				noChoicesText: 'with at least 3 letters',
 				renderChoiceLimit : 0,
 				searchResultLimit: 100,
 				shouldSort: false,
@@ -84,25 +69,7 @@
 				instance.containerOuter.element.addEventListener('click', function() {
 					// Load data after user input
 					instance.setChoices(async function() {
-						return fetchRegions()
-						.then(async function(regions) {
-							const promises = regions.map(function(region) {
-								return fetchRegion(region);
-							});
-							return Promise.all(promises)
-							.then(function(result) {
-								let citiesArray = [];
-								result.forEach(function(array) {
-									if (array) {
-										citiesArray = citiesArray.concat(array);
-									}
-								});
-								return citiesArray;
-							})
-							.catch(function(error) {
-								console.error(error);
-							})
-						})
+						return fetchCities();
 					})
 					.then(function() {
 						// We have to re-set focus on input again
@@ -110,7 +77,6 @@
 					});
 				}, { once: true });
 				instance.passedElement.element.addEventListener('change', function(e) {
-					region = instance.getValue().customProperties.region;
 					city = e.detail.value;
 				});
 			});
@@ -119,13 +85,13 @@
 </script>
 
 <header>
-	<h1><a href="/" aria-label="Zur Startseite navigieren">📰</a> feed.wtf ALPHA - {$page.params.city || $page.params.user || 'Lokale Nachrichten, die zählen'}</h1>
+	<h1><a href="/" aria-label="Navigate to home page">📰</a> feed.wtf ALPHA - {$page.params.city || $page.params.user || 'Local news that matter'}</h1>
 	<section>
-		<label for="user">Wähle</label>
+		<label for="user">Choose</label>
     	<input type="text" id="user" name="user" placeholder="Nickname" bind:value={user}>
-		<button id="userButton" disabled={user ? false : true} on:click={handleUserClick}>Los!</button>
-		<label for="cities">oder</label>
+		<button id="userButton" disabled={user ? false : true} on:click={handleUserClick}>Go!</button>
+		<label for="cities">or</label>
     	<select data-type="select-one" class="form-control" name="cities" id="cities"></select>
-    	<button id="cityButton" disabled={city ? false : true} on:click={handleCityClick}>Los!</button>
+    	<button id="cityButton" disabled={city ? false : true} on:click={handleCityClick}>Go!</button>
   	</section>
 </header>

@@ -15,5 +15,5 @@
 </main>
 
 <footer>
-    <p><b>ACHTUNG</b>: Frühe ALPHA-Version. Die Sicherstellung der eingetragenen Daten kann nicht garantiert werden!</p>
+    <p><b>Notice</b>: Early ALPHA version. The security of the entered data can not be guaranteed!</p>
 </footer>
