@@ -116,7 +116,7 @@
             // Heading
             const linkHeading = document.createElement('h2');
             linkHeading.className = 'h6 d-inline';
-            linkHeading.textContent = feed.title || 'No Feed feed. Please enter one :)';
+            linkHeading.textContent = feed.title || 'No Feed found. Please submit one :)';
             if (feed.summary) {
                 const summary = document.createElement('summary');
                 summary.appendChild(linkHeading);
